@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eVision Projects for Power BI – Installation and Setup Guide</title>
+<meta name="description" content="How to install the eVision Projects Power BI app, connect it to your Business Central environment and company, and share it with colleagues.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --border: #d1d9e0;
+    --surface: #f6f8fa;
+    --accent: #0b6a5a;
+    --note-bg: #eef7f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --muted: #9198a1;
+      --border: #3d444d;
+      --surface: #151b23;
+      --accent: #4fc3a8;
+      --note-bg: #10241f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 16px; }
+  h2 { font-size: 1.4rem; margin: 48px 0 12px; padding-top: 8px; border-top: 1px solid var(--border); }
+  h3 { font-size: 1.1rem; margin: 28px 0 8px; }
+  a { color: var(--accent); }
+  p, ul, ol { margin: 0 0 14px; }
+  li { margin-bottom: 6px; }
+  code {
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 0.92em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    overflow-wrap: anywhere;
+  }
+  .lead { font-size: 1.1rem; color: var(--muted); }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+  .toc ol { margin: 0; }
+  .note { background: var(--note-bg); border-left: 4px solid var(--accent); border-radius: 4px; padding: 12px 16px; margin: 16px 0; }
+  .table-wrap { overflow-x: auto; margin: 0 0 16px; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 12px; border: 1px solid var(--border); }
+  th { background: var(--surface); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>eVision Projects for Power BI: installation and setup guide</h1>
+<p class="lead">eVision Projects is a Power BI app that reports on project performance from Microsoft Dynamics 365 Business Central with the Eque2 eVision extension. It covers budget against actual, committed and accrued costs, margin, project sales, retentions, subcontractors, purchase commitments and plant over-runs.</p>
+<p>This guide explains how to install the app, connect it to your own Business Central environment and company, and share it with colleagues.</p>
+
+<nav class="toc" aria-label="Contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#before-you-start">Before you start</a></li>
+    <li><a href="#install-the-app">Install the app</a></li>
+    <li><a href="#connect-your-data">Connect your data</a></li>
+    <li><a href="#share-the-app">Share the app with colleagues</a></li>
+    <li><a href="#project-access-control">Project access control</a></li>
+    <li><a href="#whats-in-the-app">What's in the app</a></li>
+    <li><a href="#updating-the-app">Updating the app</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#support">Support</a></li>
+  </ol>
+</nav>
+
+<h2 id="before-you-start">Before you start</h2>
+<p>You will need the following.</p>
+
+<h3>Power BI</h3>
+<ul>
+  <li><strong>Licence:</strong> the person installing the app needs a <strong>Power BI Pro</strong> or <strong>Premium Per User (PPU)</strong> licence. Installing the app creates a new workspace, which a free licence cannot do.</li>
+  <li><strong>Viewing the reports:</strong> each person viewing the app also needs a Pro or PPU licence, unless the installed workspace is assigned to a Power BI Premium or Fabric F64 (or larger) capacity. In that case, users with a free licence can view it.</li>
+  <li><strong>Tenant settings:</strong> your Power BI administrator must allow you to install template apps. In the Fabric admin portal, go to <strong>Tenant settings → Template app settings</strong> and enable <strong>Install template apps</strong>. If you are installing from a direct link rather than Microsoft AppSource, <strong>Install template apps not listed in AppSource</strong> must also be enabled for you.</li>
+  <li><strong>Azure Maps:</strong> the app includes a map visual. Your Power BI administrator must enable the Azure Maps tenant settings for the map to display.</li>
+</ul>
+
+<h3>Business Central</h3>
+<ul>
+  <li>A Business Central environment with the <strong>Eque2 eVision extension</strong> installed.</li>
+  <li>A Business Central user account to connect with. This account needs:
+    <ul>
+      <li>a Business Central licence</li>
+      <li>the <strong>EVISION PBI REPORTS</strong> permission set (caption <em>EVision PowerBI Reports</em>)</li>
+      <li>read access to project, customer, item, resource, G/L account and purchasing data (for example, the <strong>D365 READ</strong> permission set)</li>
+    </ul>
+  </li>
+</ul>
+<p>The app reads data only. It does not change anything in Business Central.</p>
+
+<h2 id="install-the-app">Install the app</h2>
+<ol>
+  <li>Open the eVision Projects listing on Microsoft AppSource.</li>
+  <li>Select <strong>Get it now</strong> and sign in with your work account if prompted.</li>
+  <li>In Power BI, select <strong>Install</strong>.</li>
+  <li>When installation finishes, select <strong>Go to app</strong>.</li>
+</ol>
+<p>The app opens with <strong>sample data</strong> so you can explore the reports before connecting your own data. A banner at the top of the page shows that you are viewing sample data.</p>
+
+<h2 id="connect-your-data">Connect your data</h2>
+<ol>
+  <li>In the app, select <strong>Connect your data</strong> on the banner at the top of the page.</li>
+  <li>Enter the two parameters below, then select <strong>Next</strong>.
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parameter</th><th>What to enter</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ENVIRONMENT</strong></td><td>The name of your Business Central environment</td><td><code>Production</code></td></tr>
+          <tr><td><strong>COMPANY</strong></td><td>The name of your Business Central company, exactly as it appears in Business Central</td><td><code>CRONUS UK Ltd.</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </li>
+  <li>For <strong>Authentication method</strong>, choose <strong>OAuth2</strong>, then select <strong>Sign in and connect</strong>.</li>
+  <li>Sign in with the Business Central user account described in <a href="#before-you-start">Before you start</a>.</li>
+  <li>Power BI loads your data. The sample data banner disappears when the refresh is complete. This can take several minutes, depending on how much data you have.</li>
+</ol>
+
+<h3>Finding your environment name</h3>
+<ul>
+  <li><strong>From the browser address bar:</strong> when you are signed in to Business Central, the address looks like <code>https://businesscentral.dynamics.com/&lt;tenant&gt;/&lt;environment&gt;/</code>. The part after your tenant is the environment name.</li>
+  <li><strong>From Business Central:</strong> select the <strong>?</strong> (Help) icon, then <strong>Help &amp; Support</strong>. The environment name is shown under <strong>Troubleshooting</strong>.</li>
+  <li><strong>From the Business Central admin centre:</strong> the <strong>Environments</strong> list shows every environment name.</li>
+</ul>
+
+<h3>Finding your company name</h3>
+<p>In Business Central, search for <strong>Companies</strong> and open the page. Copy the <strong>Name</strong> exactly, including spaces and punctuation. The company name is case-sensitive.</p>
+
+<h3>Refresh schedule</h3>
+<p>By default, Power BI refreshes the data once a day. To change this, open the app's workspace, find the semantic model, select <strong>Settings</strong> and update <strong>Scheduled refresh</strong>.</p>
+
+<h2 id="share-the-app">Share the app with colleagues</h2>
+<p>The installed app belongs to the workspace it was installed into. To give colleagues access:</p>
+<ol>
+  <li>Select the pencil icon in the top right of the app to open the workspace.</li>
+  <li>Select <strong>Update app</strong>, then the <strong>Audience</strong> tab.</li>
+  <li>Add the people or groups who should see the app, then select <strong>Update app</strong>.</li>
+</ol>
+<p>Each person needs a Power BI licence as described in <a href="#before-you-start">Before you start</a>.</p>
+
+<h2 id="project-access-control">Project access control</h2>
+<p>eVision can restrict which projects each user sees. The app follows the same rules, using a security role called <strong>UserAccess</strong> in the semantic model.</p>
+<ul>
+  <li><strong>Users with job user access enabled</strong> in eVision see only the projects they are assigned to.</li>
+  <li><strong>Users with job user access disabled, or with no job user access setup,</strong> see all projects.</li>
+</ul>
+<p>The app matches people by their sign-in name. The <strong>User Name</strong> in Business Central must match the part of the person's work email address before the <strong>@</strong>. For example, <code>jsmith@contoso.com</code> matches the Business Central user <code>JSMITH</code>.</p>
+<p>To apply project access control:</p>
+<ol>
+  <li>In the app's workspace, find the semantic model, select <strong>More options (…)</strong>, then <strong>Security</strong>.</li>
+  <li>Select the <strong>UserAccess</strong> role and add the people or groups who use the app.</li>
+  <li>Select <strong>Save</strong>.</li>
+</ol>
+<div class="note">Row-level security applies only to people who view the app or have the <strong>Viewer</strong> role in the workspace. Workspace <strong>Admins</strong>, <strong>Members</strong> and <strong>Contributors</strong> see all projects.</div>
+
+<h2 id="whats-in-the-app">What's in the app</h2>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Page</th><th>What it shows</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Projects Overview</strong></td><td>Key figures across all projects: budget, actual, committed and accrued cost, and margin</td></tr>
+      <tr><td><strong>Parent Project Detail</strong></td><td>Figures for a parent project and the projects beneath it</td></tr>
+      <tr><td><strong>Project Detail</strong></td><td>Budget against actual for a single project, by task</td></tr>
+      <tr><td><strong>Project information</strong></td><td>General details for a selected project</td></tr>
+      <tr><td><strong>Project sales</strong></td><td>Contract sales and project sales lines</td></tr>
+      <tr><td><strong>Project retentions</strong></td><td>Retentions held and due for customers and subcontractors</td></tr>
+      <tr><td><strong>Subcontractor summary</strong></td><td>Subcontract orders, committed cost and values by project and task</td></tr>
+      <tr><td><strong>Remaining purchase commitments</strong></td><td>Outstanding purchase orders for materials and external plant</td></tr>
+      <tr><td><strong>Plant over runs</strong></td><td>Internal and external plant hire running past its planned end date</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Most figures support <strong>drill-through</strong>. Right-click a value and choose <strong>Drill through</strong> to see the underlying entries.</p>
+
+<h2 id="updating-the-app">Updating the app</h2>
+<p>When Eque2 releases a new version, Power BI shows a notification in the app and in the notifications pane. Select <strong>Get it</strong> and choose one of the following:</p>
+<ul>
+  <li><strong>Update the workspace and the app</strong> if you have not changed any of the app's content</li>
+  <li><strong>Update only workspace content without updating the app</strong> if you want to review the changes before republishing to your colleagues</li>
+  <li><strong>Install another copy of the app into a new workspace</strong> if you want to keep your current version unchanged</li>
+</ul>
+<p>Your parameters and sign-in details are kept. The app shows sample data until the first refresh after the update completes.</p>
+<div class="note">Updating overwrites the original reports. If you have customised a report, save it under a different name first.</div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Problem</th><th>What to check</th></tr></thead>
+    <tbody>
+      <tr><td><strong>You can't install the app</strong></td><td>Check that you have a Pro or PPU licence, and ask your Power BI administrator to check the template app tenant settings.</td></tr>
+      <tr><td><strong>The refresh fails with "company not found" or a similar error</strong></td><td>Check that the <strong>COMPANY</strong> value matches the name on the <strong>Companies</strong> page exactly, including spaces and punctuation.</td></tr>
+      <tr><td><strong>The refresh fails with an environment error</strong></td><td>Check the <strong>ENVIRONMENT</strong> value against the environment name in Business Central or the admin centre.</td></tr>
+      <tr><td><strong>The refresh fails with a sign-in or permission error</strong></td><td>Check that the account you signed in with has a Business Central licence, the <strong>EVISION PBI REPORTS</strong> permission set and read access to project and purchasing data.</td></tr>
+      <tr><td><strong>Some reports are empty</strong></td><td>Check that the eVision extension is installed and up to date in the environment you connected to.</td></tr>
+      <tr><td><strong>Users can't see some or all projects</strong></td><td>Check their job user access setup in eVision and that their Business Central user name matches their sign-in name. See <a href="#project-access-control">Project access control</a>.</td></tr>
+      <tr><td><strong>The map doesn't display</strong></td><td>Ask your Power BI administrator to enable the Azure Maps tenant settings.</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>To change the environment or company after installation, open the app's workspace, find the semantic model, select <strong>Settings</strong> and update <strong>Parameters</strong>. Then refresh the semantic model.</p>
+
+<h2 id="support">Support</h2>
+<p>If you need help with the app, contact Eque2 support:</p>
+<ul>
+  <li><strong>Email:</strong> <a href="mailto:evision.support@eque2.com">evision.support@eque2.com</a></li>
+  <li><strong>Website:</strong> <a href="https://www.eque2.com/customer-support">www.eque2.com/customer-support</a></li>
+</ul>
+
+<footer>© Eque2 Ltd. Microsoft, Power BI, Dynamics 365 and Business Central are trademarks of the Microsoft group of companies.</footer>
+
+</main>
+</body>
+</html>
