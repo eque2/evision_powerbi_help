@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>eVision Projects for Power BI – Installation and Setup Guide</title>
-<meta name="description" content="How to install the eVision Projects Power BI app, connect it to your Business Central environment and company, and share it with colleagues.">
+<title>EVision Projects for Power BI – Installation and Setup Guide</title>
+<meta name="description" content="How to install the EVision Projects Power BI app, connect it to your Business Central environment and company, and share it with colleagues.">
 <style>
   :root {
     --bg: #ffffff;
@@ -63,8 +63,8 @@
 <body>
 <main>
 
-<h1>eVision Projects for Power BI: installation and setup guide</h1>
-<p class="lead">eVision Projects is a Power BI app that reports on project performance from Microsoft Dynamics 365 Business Central with the Eque2 eVision extension. It covers budget against actual, committed and accrued costs, margin, project sales, retentions, subcontractors, purchase commitments and plant over-runs.</p>
+<h1>EVision Projects for Power BI: installation and setup guide</h1>
+<p class="lead">EVision Projects is a Power BI app that reports on project performance from Microsoft Dynamics 365 Business Central with the Eque2 EVision extension. It covers budget against actual, committed and accrued costs, margin, project sales, retentions, subcontractors, purchase commitments and plant over-runs.</p>
 <p>This guide explains how to install the app, connect it to your own Business Central environment and company, and share it with colleagues.</p>
 
 <nav class="toc" aria-label="Contents">
@@ -95,7 +95,7 @@
 
 <h3>Business Central</h3>
 <ul>
-  <li>A Business Central environment with the <strong>Eque2 eVision extension</strong> installed.</li>
+  <li>A Business Central environment with the <strong>Eque2 EVision extension</strong> installed.</li>
   <li>A Business Central user account to connect with. This account needs:
     <ul>
       <li>a Business Central licence</li>
@@ -108,7 +108,7 @@
 
 <h2 id="install-the-app">Install the app</h2>
 <ol>
-  <li>Open the eVision Projects listing on Microsoft AppSource.</li>
+  <li>Open the EVision Projects listing on Microsoft AppSource.</li>
   <li>Select <strong>Get it now</strong> and sign in with your work account if prompted.</li>
   <li>In Power BI, select <strong>Install</strong>.</li>
   <li>When installation finishes, select <strong>Go to app</strong>.</li>
@@ -157,9 +157,9 @@
 <p>Each person needs a Power BI licence as described in <a href="#before-you-start">Before you start</a>.</p>
 
 <h2 id="project-access-control">Project access control</h2>
-<p>eVision can restrict which projects each user sees. The app follows the same rules, using a security role called <strong>UserAccess</strong> in the semantic model.</p>
+<p>EVision can restrict which projects each user sees. The app follows the same rules, using a security role called <strong>UserAccess</strong> in the semantic model.</p>
 <ul>
-  <li><strong>Users with job user access enabled</strong> in eVision see only the projects they are assigned to.</li>
+  <li><strong>Users with job user access enabled</strong> in EVision see only the projects they are assigned to.</li>
   <li><strong>Users with job user access disabled, or with no job user access setup,</strong> see all projects.</li>
 </ul>
 <p>The app matches people by their sign-in name. The <strong>User Name</strong> in Business Central must match the part of the person's work email address before the <strong>@</strong>. For example, <code>jsmith@contoso.com</code> matches the Business Central user <code>JSMITH</code>.</p>
@@ -209,8 +209,8 @@
       <tr><td><strong>The refresh fails with "company not found" or a similar error</strong></td><td>Check that the <strong>COMPANY</strong> value matches the name on the <strong>Companies</strong> page exactly, including spaces and punctuation.</td></tr>
       <tr><td><strong>The refresh fails with an environment error</strong></td><td>Check the <strong>ENVIRONMENT</strong> value against the environment name in Business Central or the admin centre.</td></tr>
       <tr><td><strong>The refresh fails with a sign-in or permission error</strong></td><td>Check that the account you signed in with has a Business Central licence, the <strong>EVISION PBI REPORTS</strong> permission set and read access to project and purchasing data.</td></tr>
-      <tr><td><strong>Some reports are empty</strong></td><td>Check that the eVision extension is installed and up to date in the environment you connected to.</td></tr>
-      <tr><td><strong>Users can't see some or all projects</strong></td><td>Check their job user access setup in eVision and that their Business Central user name matches their sign-in name. See <a href="#project-access-control">Project access control</a>.</td></tr>
+      <tr><td><strong>Some reports are empty</strong></td><td>Check that the EVision extension is installed and up to date in the environment you connected to.</td></tr>
+      <tr><td><strong>Users can't see some or all projects</strong></td><td>Check their job user access setup in EVision and that their Business Central user name matches their sign-in name. See <a href="#project-access-control">Project access control</a>.</td></tr>
       <tr><td><strong>The map doesn't display</strong></td><td>Ask your Power BI administrator to enable the Azure Maps tenant settings.</td></tr>
     </tbody>
   </table>
